@@ -1,0 +1,84 @@
+/* Reseta margens e padding básicos para evitar problemas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo para aplicar uma fonte mais moderna e fundo branco */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+}
+
+/* Configurações principais do cabeçalho */
+#cabecalho {
+    /* Define o fundo lilás/roxo e cor do texto como branco */
+    background-color: #7b7bb3;
+    color: #fff;
+    
+    /* Centraliza o conteúdo horizontalmente na página */
+    width: 1000px;
+    margin: 20px auto;
+    
+    /* Espaçamento interno */
+    padding: 20px 40px; /* Reduzi um pouco a altura para ficar mais elegante */
+    
+    /* Layout Flexbox para alinhar logo à esquerda e menu à direita */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    
+    /* Borda sutil para dar acabamento */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Estilização da área do Logo */
+#logo {
+    /* Flexbox para alinhar os textos "Esporte" e "ArLivre" */
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilização específica do nome destacado */
+#titulo-logo {
+    color: #6a5acd; /* Cor de destaque (SlateBlue) */
+    background-color: #fff; /* Fundo branco para destacar */
+    padding: 5px 15px; /* Espaçamento interno */
+    margin-left: 10px; /* Espaço entre "Esporte" e o destaque */
+    border-radius: 4px; /* Cantos arredondados */
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra para profundidade */
+}
+
+/* Estilização da área do Menu */
+#menu {
+    width: auto; /* Deixa o menu ocupar apenas o espaço necessário */
+}
+
+/* Estilização da lista de itens do menu */
+#ul-menu {
+    list-style: none; /* Remove as bolinhas da lista */
+    display: flex; /* Alinha os links horizontalmente */
+    gap: 30px; /* Espaço entre cada link */
+    align-items: center;
+}
+
+/* Estilização dos links do menu (lnk-menu) */
+.lnk-menu {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #fff; /* Cor do texto */
+    font-size: 16px;
+    text-transform: capitalize; /* Primeira letra maiúscula */
+    font-weight: 500;
+    transition: 0.3s; /* Animação suave para o hover */
+}
+
+/* Efeito de hover nos links */
+.lnk-menu:hover {
+    color: #d1d1f0; /* Cor mais clara ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de elevação sutil */
+}
