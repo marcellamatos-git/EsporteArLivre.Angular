@@ -1,29 +1,29 @@
 <section id="form">
     <h2> Cadastro de Atleta </h2>
 
-    <form action="" id="form-atleta">
+    <form (ngSubmit)="cadastrarAtleta()" id="form-atleta">
         <label for="nome">Nome Completo*</label>
-        <input type="text" name="nome" id="nome" class="input01" maxlength="60" required placeholder="Digite o nome Completo">
+        <input type="text" name="nome" id="nome" class="input01" maxlength="60" required placeholder="Digite o nome Completo" [(ngModel)]="atleta.nome">
 
         <label for="cpf">CPF*</label>
-        <input type="text" name="cpf" id="cpf" class="input02" maxlength="14" required placeholder="Digite o cpf">
+        <input type="text" name="cpf" id="cpf" class="input02" maxlength="14" required placeholder="Digite o cpf" [(ngModel)]="atleta.cpf">
 
         <label for="sexo">Sexo</label>
-        <input type="radio" name="sexo" id="sexoM" class="radio01" required value="M"> Masculino
-        <input type="radio" name="sexo" id="sexoF" class="radio01" required value="F"> Feminino
-        <input type="radio" name="sexo" id="sexoN" class="radio01" required value="N"> Não Declarar
+        <input type="radio" name="sexo" id="sexoM" class="radio01" required value="M" [(ngModel)]="atleta.sexo"> Masculino
+        <input type="radio" name="sexo" id="sexoF" class="radio01" required value="F" [(ngModel)]="atleta.sexo"> Feminino
+        <input type="radio" name="sexo" id="sexoN" class="radio01" required value="N" [(ngModel)]="atleta.sexo"> Não Declarar
 
         <label for="cep">CEP*</label>
-        <input type="text" name="cep" id="cep" class="input02" maxlength="9" required placeholder="Digite o cep">
+        <input type="text" name="cep" id="cep" class="input02" maxlength="9" required placeholder="Digite o cep" [(ngModel)]="atleta.cep">
 
         <label for="rua-logradouro">Rua/Logradouro*</label>
-        <input type="text" name="rua-logradouro" id="rua-logradouro" class="input01" maxlength="100" required placeholder="Digite a Rua ou o Logradouro">
+        <input type="text" name="ruaLogradouro" id="rua-logradouro" class="input01" maxlength="100" required placeholder="Digite a Rua ou o Logradouro" [(ngModel)]="atleta.ruaLogradouro">
 
         <label for="bairro">Bairro*</label>
-        <input type="text" name="bairro" id="bairro" class="input02" maxlength="60" required placeholder="Digite o bairro ">
+        <input type="text" name="bairro" id="bairro" class="input02" maxlength="60" required placeholder="Digite o bairro" [(ngModel)]="atleta.bairro">
 
         <label for="cidade">Cidade*</label>
-        <input type="text" name="cidade" id="cidade" class="input02" maxlength="60" required placeholder="Digite o cidade ">
+        <input type="text" name="cidade" id="cidade" class="input02" maxlength="60" required placeholder="Digite a cidade" [(ngModel)]="atleta.cidade">
 
         <div id="div-btns">
             <button type="submit" id="btnAdd"> Cadastrar </button>
