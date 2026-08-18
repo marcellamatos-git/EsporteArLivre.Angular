@@ -1,1 +1,12 @@
-<p>atleta-list-component works!</p>
+<div class="container">
+    <h2>Lista de Atletas</h2>
+    <ul>
+      @for (elem of listaAtletas(); track elem.id) {
+        <li>
+          {{ elem.id }} - {{ elem.nome }} - {{ elem.cpf }} - {{ elem.cidade }} / {{ elem.uf }}
+          <a class="lnk-atleta lnk-alterar" (click)="carregaDadosAtletaForm(elem)">A</a>
+          <a class="lnk-atleta lnk-excluir" (click)="excluir(elem.id)">E</a>
+        </li>
+      }
+    </ul>
+  </div>

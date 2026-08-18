@@ -1,30 +1,44 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Importação do FormsModule
+import { FormsModule } from '@angular/forms';
+import { AtletaService } from '../service/atleta-service';
+import { Atleta } from '../../models/Atleta'; // Correção do caminho
 
 @Component({
   selector: 'app-atleta-component',
-  standalone: true,
-  imports: [FormsModule], // Adicionado na lista de imports
+  imports: [FormsModule],
   templateUrl: './atleta-component.html',
-  styleUrl: './atleta-component.css'
+  styleUrl: './atleta-component.css',
 })
 export class AtletaComponent {
+  atleta: Atleta = new Atleta();
 
-  // Objeto para capturar os campos do formulário
-  atleta = {
-    nome: '',
-    cpf: '',
-    sexo: '',
-    cep: '',
-    ruaLogradouro: '',
-    bairro: '',
-    cidade: ''
-  };
+  constructor(private atletaService: AtletaService) {}
 
   cadastrarAtleta() {
-    console.log('--- NOVO ATLETA CADASTRADO ---');
-    console.log(this.atleta);
-    console.table(this.atleta); // Exibe em formato de tabela organizada
+    this.enviarDadosAtleta();
   }
 
+  limparDados() {
+    this.atleta = new Atleta();
+  }
+
+  enviarDadosAtleta() {
+    if (this.atleta.id) {
+      this.atletaService.alterarAtleta(this.atleta).subscribe({
+        next: (resposta: Atleta) => {
+          console.log('Alterado com sucesso', resposta);
+          this.limparDados();
+        },
+        error: (err: any) => console.error(err)
+      });
+    } else {
+      this.atletaService.salvarAtleta(this.atleta).subscribe({
+        next: (resposta: Atleta) => {
+          console.log('Salvo com sucesso', resposta);
+          this.limparDados();
+        },
+        error: (err: any) => console.error(err)
+      });
+    }
+  }
 }
