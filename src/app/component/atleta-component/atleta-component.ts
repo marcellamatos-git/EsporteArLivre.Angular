@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtletaService } from '../service/atleta-service';
-import { Atleta } from '../../models/Atleta'; // Correção do caminho
-
+import { Atleta } from '../models/Atletas';
 @Component({
   selector: 'app-atleta-component',
   imports: [FormsModule],
