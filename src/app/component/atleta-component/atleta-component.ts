@@ -21,6 +21,18 @@ export class AtletaComponent {
     this.atleta = new Atleta();
   }
 
+  carregaDados(idAtleta: number) {
+    this.atletaService.listarAtleta(idAtleta)
+      .subscribe({
+        next: (dadosAtleta) => {
+          this.atleta = dadosAtleta;
+        },
+        error: (msgErro) => {
+          console.log('ERRO AO LISTAR ATLETA', msgErro);
+        }
+      });
+  }
+
   enviarDadosAtleta() {
     if (this.atleta.id) {
       this.atletaService.alterarAtleta(this.atleta).subscribe({
