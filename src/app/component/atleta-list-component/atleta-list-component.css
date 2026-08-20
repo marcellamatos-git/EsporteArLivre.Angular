@@ -1,0 +1,146 @@
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  
+  .cabecalho {
+    margin-bottom: 25px;
+  }
+  
+  .cabecalho h2 {
+    margin: 0;
+    font-size: 30px;
+    color: #222;
+  }
+  
+  .cabecalho p {
+    margin-top: 8px;
+    color: #777;
+  }
+  
+  .tabela-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background: #f5f6f8;
+  }
+  
+  th {
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    color: #555;
+    font-weight: 700;
+  }
+  
+  td {
+    padding: 16px;
+    border-top: 1px solid #eeeeee;
+    color: #555;
+  }
+  
+  tbody tr {
+    transition: 0.2s;
+  }
+  
+  tbody tr:hover {
+    background: #f8f9fa;
+  }
+  
+  .id {
+    color: #777;
+    font-weight: bold;
+  }
+  
+  .nome {
+    color: #222;
+    font-weight: 600;
+  }
+  
+  .uf {
+    background: #e9f7ef;
+    color: #198754;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  
+  .acoes {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .btn-editar,
+  .btn-excluir {
+    border: none;
+    border-radius: 7px;
+    padding: 9px 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .btn-editar {
+    background: #fff3cd;
+    color: #856404;
+  }
+  
+  .btn-editar:hover {
+    background: #ffdf70;
+    transform: translateY(-1px);
+  }
+  
+  .btn-excluir {
+    background: #f8d7da;
+    color: #842029;
+  }
+  
+  .btn-excluir:hover {
+    background: #f1aeb5;
+    transform: translateY(-1px);
+  }
+  
+  .sem-atletas {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .icone {
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .sem-atletas h3 {
+    margin: 0 0 8px;
+  }
+  
+  .sem-atletas p {
+    color: #777;
+  }
+  
+  @media (max-width: 800px) {
+  
+    .tabela-card {
+      overflow-x: auto;
+    }
+  
+    table {
+      min-width: 750px;
+    }
+  
+    .acoes {
+      flex-direction: column;
+    }
+  
+  }

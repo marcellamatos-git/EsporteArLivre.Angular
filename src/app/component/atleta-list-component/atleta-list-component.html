@@ -1,12 +1,97 @@
 <div class="container">
-    <h2>Lista de Atletas</h2>
-    <ul>
-      @for (elem of listaAtletas(); track elem.id) {
-        <li>
-          {{ elem.id }} - {{ elem.nome }} - {{ elem.cpf }} - {{ elem.cidade }} / {{ elem.uf }}
-          <a class="lnk-atleta lnk-alterar" (click)="carregaDadosAtletaForm(elem)">A</a>
-          <a class="lnk-atleta lnk-excluir" (click)="excluir(elem.id)">E</a>
-        </li>
-      }
-    </ul>
+
+  <div class="cabecalho">
+    <div>
+      <h2>Lista de Atletas</h2>
+      <p>Atletas cadastrados no sistema</p>
+    </div>
   </div>
+
+  <div class="tabela-card">
+
+    @if (listaAtletas().length > 0) {
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Cidade</th>
+            <th>UF</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (elem of listaAtletas(); track elem.id) {
+
+            <tr>
+
+              <td class="id">
+                #{{ elem.id }}
+              </td>
+
+              <td class="nome">
+                {{ elem.nome }}
+              </td>
+
+              <td>
+                {{ elem.cpf }}
+              </td>
+
+              <td>
+                {{ elem.cidade }}
+              </td>
+
+              <td>
+                <span class="uf">
+                  {{ elem.uf }}
+                </span>
+              </td>
+
+              <td class="acoes">
+
+                <button
+                  type="button"
+                  class="btn-editar"
+                  (click)="carregaDadosAtletaForm(elem)">
+                  ✏️ Editar
+                </button>
+
+                <button
+                  type="button"
+                  class="btn-excluir"
+                  (click)="excluir(elem.id)">
+                  🗑️ Excluir
+                </button>
+
+              </td>
+
+            </tr>
+
+          }
+        </tbody>
+      </table>
+
+    } @else {
+
+      <div class="sem-atletas">
+
+        <div class="icone">
+          👤
+        </div>
+
+        <h3>Nenhum atleta cadastrado</h3>
+
+        <p>
+          Ainda não existem atletas cadastrados.
+        </p>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>
