@@ -1,0 +1,91 @@
+<div class="container">
+
+    <h2>Lista de Corridas</h2>
+  
+    @if (corridas.length > 0) {
+  
+      <table>
+  
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>5km</th>
+            <th>10km</th>
+            <th>25km</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+  
+          @for (corrida of corridas; track corrida.id) {
+  
+            <tr>
+  
+              <td>
+                #{{ corrida.id }}
+              </td>
+  
+              <td>
+                {{ corrida.descricao }}
+              </td>
+  
+              <td>
+                {{ corrida.data | date:'dd/MM/yyyy' }}
+              </td>
+  
+              <td>
+                {{ corrida.distancias.km5 ? 'Sim' : 'Não' }}
+              </td>
+  
+              <td>
+                {{ corrida.distancias.km10 ? 'Sim' : 'Não' }}
+              </td>
+  
+              <td>
+                {{ corrida.distancias.km25 ? 'Sim' : 'Não' }}
+              </td>
+  
+              <td class="acoes">
+  
+                <button
+                  type="button"
+                  class="btn-editar"
+                  (click)="editar(corrida.id)">
+                  ✏️ Editar
+                </button>
+  
+                <button
+                  type="button"
+                  class="btn-excluir"
+                  (click)="excluir(corrida.id)">
+                  🗑️ Excluir
+                </button>
+  
+              </td>
+  
+            </tr>
+  
+          }
+  
+        </tbody>
+  
+      </table>
+  
+    } @else {
+  
+      <div class="sem-corridas">
+  
+        <h3>Nenhuma corrida cadastrada</h3>
+  
+        <p>
+          Ainda não existem corridas cadastradas.
+        </p>
+  
+      </div>
+  
+    }
+  
+  </div>

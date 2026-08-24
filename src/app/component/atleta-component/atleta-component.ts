@@ -1,17 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AtletaService } from '../service/atleta-service';
 import { Atleta } from '../models/Atletas';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-atleta-component',
   imports: [FormsModule],
   templateUrl: './atleta-component.html',
   styleUrl: './atleta-component.css',
 })
-export class AtletaComponent {
+export class AtletaComponent implements OnInit {
   atleta: Atleta = new Atleta();
 
-  constructor(private atletaService: AtletaService) {}
+  constructor(
+    private atletaService: AtletaService,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit(): void {
+
+    const id = this.route.snapshot.paramMap.get('id');
+  
+    if (id) {
+      this.carregaDados(Number(id));
+    }
+  
+  }
 
   cadastrarAtleta() {
     this.enviarDadosAtleta();

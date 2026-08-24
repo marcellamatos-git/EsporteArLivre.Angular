@@ -4,7 +4,7 @@ import { AtletaComponent } from './component/atleta-component/atleta-component';
 import { CorridaComponent } from './component/corrida-component/corrida-component';
 import { HomeComponent } from './component/home-component/home-component';
 import { AtletaListComponent } from './component/atleta-list-component/atleta-list-component';
-
+import { CorridaListComponent } from './component/corrida-list-component/corrida-list-component';
 export const routes: Routes = [
 
   {
@@ -36,6 +36,10 @@ export const routes: Routes = [
   {
     path: 'cadastroCorrida',
     component: CorridaComponent
+  },
+  {
+    path: 'listaCorrida',
+    component: CorridaListComponent
   }
 
 ];

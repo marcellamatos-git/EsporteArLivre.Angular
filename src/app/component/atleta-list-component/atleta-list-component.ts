@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Atleta } from '../models/Atletas';
 import { AtletaService } from '../service/atleta-service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-atleta-list-component',
   standalone: true,
@@ -13,8 +13,10 @@ export class AtletaListComponent implements OnInit {
 
   listaAtletas = signal<Atleta[]>([]);
 
-  constructor(private atletaService: AtletaService) {}
-
+  constructor(
+    private atletaService: AtletaService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.listarAtletas();
   }
@@ -53,11 +55,10 @@ export class AtletaListComponent implements OnInit {
 
     });
   }
-
   carregaDadosAtletaForm(atleta: Atleta): void {
 
-    console.log('Atleta selecionado:', atleta);
-
+    this.router.navigate(['/cadastroAtleta', atleta.id]);
+  
   }
 
 }
