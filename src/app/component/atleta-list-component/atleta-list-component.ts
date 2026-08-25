@@ -1,4 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
+
 import { Atleta } from '../models/Atletas';
 import { AtletaService } from '../service/atleta-service';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-atleta-list-component',
   standalone: true,
   imports: [],
+
   templateUrl: './atleta-list-component.html',
   styleUrl: './atleta-list-component.css'
 })
@@ -20,6 +22,24 @@ export class AtletaListComponent implements OnInit {
   ngOnInit(): void {
     this.listarAtletas();
   }
+  calcularIdade(dataNascimento: string): number {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+  
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+  
+    const mes = hoje.getMonth() - nascimento.getMonth();
+  
+    if (
+      mes < 0 ||
+      (mes === 0 && hoje.getDate() < nascimento.getDate())
+    ) {
+      idade--;
+    }
+  
+    return idade;
+  }
+  
 
   listarAtletas(): void {
 
