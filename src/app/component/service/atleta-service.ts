@@ -21,6 +21,8 @@ export class AtletaService {
     return this.http.get<Atleta>(`${this.urlApi}/${idAtleta}`);
   }
 
+  
+
   salvarAtleta(atleta: Atleta): Observable<Atleta> {
     return this.http.post<Atleta>(this.urlApi, atleta);
   }
@@ -35,4 +37,23 @@ export class AtletaService {
       atleta
     );
   }
+
+  calcularIdade(dataNascimento: string): number {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+  
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+  
+    const mes = hoje.getMonth() - nascimento.getMonth();
+  
+    if (
+      mes < 0 ||
+      (mes === 0 && hoje.getDate() < nascimento.getDate())
+    ) {
+      idade--;
+    }
+  
+    return idade;
+  }
+  
 }
