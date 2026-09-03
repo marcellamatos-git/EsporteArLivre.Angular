@@ -1,12 +1,14 @@
 export class Atleta {
   id?: number;
-  nome: string = '';
-  cpf: number = 0;
-  sexo: string = '';
-  dataNascimento: string = '';
-  cep: number = 0;
-  ruaLogradouro: string = '';
-  bairro: string = '';
-  cidade: string = '';
-  uf: string = '';
+  nome?: string;
+  cpf?: string;
+  dataNascimento?: string; // <- Adicione esta linha
+  sexo?: string;
+  cep?: string;
+  ruaLogradouro?: string;
+  bairro?: string;
+  cidade?: string;
+  uf?: string;
+  peso?: number;          
+  altura?: number;        
 }

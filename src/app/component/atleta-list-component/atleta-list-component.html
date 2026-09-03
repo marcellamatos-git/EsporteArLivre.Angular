@@ -18,11 +18,14 @@
             <th>Nome</th>
             <th>CPF</th>
             <th>Idade</th>
+            <th>Peso</th>
+            <th>Altura</th>
+            <th>IMC</th>
+            <th>Situação</th>
             <th>Cidade</th>
             <th>UF</th>
             <th>Ações</th>
           </tr>
-          
         </thead>
 
         <tbody>
@@ -45,8 +48,22 @@
               <td>
                 {{ calcularIdade(elem.dataNascimento) }} anos
               </td>
-              
-              
+
+              <td>
+                {{ elem.peso ? elem.peso + ' kg' : '-' }}
+              </td>
+
+              <td>
+                {{ elem.altura ? elem.altura + ' m' : '-' }}
+              </td>
+
+              <td>
+                {{ calcularIMC(elem.peso, elem.altura) | number:'1.2-2' }}
+              </td>
+
+              <td>
+                {{ obterSituacaoIMC(elem.peso, elem.altura) }}
+              </td>
 
               <td>
                 {{ elem.cidade }}
